@@ -19,8 +19,16 @@ folder_url = "https://drive.google.com/drive/folders/1--q1HXhRG69d1Dlv-j6VJmSyRG
 # Папка, в которую будет загружено содержимое
 output_dir = "./models/RuT5_GEC"
 
-# Загрузка всей папки
-gdown.download_folder(url=folder_url, output=output_dir, quiet=False, use_cookies=False)
+# Проверка, пуста ли папка
+def is_folder_empty(path):
+    return not os.path.exists(path) or len(os.listdir(path)) == 0
+
+# Загрузка папки только если она пуста
+if is_folder_empty(output_dir):
+    print("Папка пуста. Начинается загрузка...")
+    gdown.download_folder(url=folder_url, output=output_dir, quiet=False, use_cookies=False)
+else:
+    print("Папка не пуста. Загрузка не требуется.")
 
 # Инициализация морфологического анализатора
 morph_model_path = './models/RuT5_GEC'
