@@ -3,6 +3,11 @@ import joblib
 import argparse
 import numpy as np
 from feat_extraction_final_pipline import process_file
+import logging
+from transformers import logging as transformers_logging
+
+# Уровень логирования только для ошибок
+transformers_logging.set_verbosity_error()
 
 MODEL_PATH = "models/shico_model/best_stacking_model.joblib"  
 
