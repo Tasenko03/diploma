@@ -12,13 +12,13 @@
 ### Извлечение признаков из директории с аудиофайлами
 
 ```bash
-python feat_extraction_final_pipline.py <путь_к_директории_с_аудиофайлами> -o <путь_для_сохранения_CSV>
+poetry run python feat_extraction_final_pipline.py <путь_к_директории_с_аудиофайлами> -o <путь_для_сохранения_CSV>
 ```
 
 Пример:
 
 ```bash
-python feat_extraction_final_pipline.py data/audio_samples -o extracted_features.csv
+poetry run python feat_extraction_final_pipline.py data/audio_samples -o extracted_features.csv
 ```
 
 * Аудиофайлы должны иметь расширение `.wav`.
@@ -29,13 +29,13 @@ python feat_extraction_final_pipline.py data/audio_samples -o extracted_features
 ### Предсказание класса для одного аудиофайла
 
 ```bash
-python final_pipline.py <путь_к_аудиофайлу>
+poetry run python final_pipline.py <путь_к_аудиофайлу>
 ```
 
 Пример:
 
 ```bash
-python final_pipline.py data/audio_samples/sample1.wav
+poetry run python final_pipline.py data/audio_samples/sample1.wav
 ```
 
 Результат: в консоли будет выведен предсказанный класс и вероятность положительного класса.
