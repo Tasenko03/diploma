@@ -1,6 +1,7 @@
 import os
 import sys
 import argparse
+import gdown
 import pandas as pd
 import torch
 from verbal_fluency import SpeechFluencyAnalyzer
@@ -10,8 +11,19 @@ from lexical_features import analyze_text_lex
 from syntactical_features import analyze_text_synt
 from discursive_features import TextFeaturesExtractor
 from morphological_features import TextAnalyzer
+import gdown
 
-morph_model_path = "./models/RuT5_GEC"
+# Ссылка на папку на Google Drive
+folder_url = "https://drive.google.com/drive/folders/1--q1HXhRG69d1Dlv-j6VJmSyRG4mwgYJ"
+
+# Папка, в которую будет загружено содержимое
+output_dir = "./models/RuT5_GEC"
+
+# Загрузка всей папки
+gdown.download_folder(url=folder_url, output=output_dir, quiet=False, use_cookies=False)
+
+# Инициализация морфологического анализатора
+morph_model_path = './models/RuT5_GEC'
 morph_analyzer = TextAnalyzer(morph_model_path)
 
 def process_file(filepath: str, group_label: str) -> dict | None:
