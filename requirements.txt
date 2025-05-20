@@ -1,5 +1,4 @@
 argparse
-cudf
 ffmpeg-python
 ipykernel
 jupyter
@@ -24,3 +23,4 @@ torch
 torchaudio
 transformers
 xgboost
+gdown
